@@ -1,0 +1,35 @@
+@font-face{
+    font-family: Distantgalaxy;
+    src: url(SfDistantGalaxyAltoutline-e2Bp.ttf)
+}
+@font-face{
+    font-family: Starjedi;
+    src: url(Starjedi.ttf)
+}
+@font-face{
+    font-family: Poppins-Black;
+    src: url(Poppins-Black.ttf)
+}
+@font-face{
+    font-family: Poppins-Bold;
+    src: url(Poppins-Bold.ttf)
+}
+@font-face{
+    font-family: Poppins-ExtraBold;
+    src: url(Poppins-ExtraBold.ttf)
+}
+@font-face{
+    font-family: Poppins-Medium;
+    src: url(Poppins-Medium.ttf)
+}
+@font-face{
+    font-family: Poppins-Regular;
+    src: url(Poppins-Regular.ttf)
+}
+
+body{
+    background-image: url(../images/bg_1.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
