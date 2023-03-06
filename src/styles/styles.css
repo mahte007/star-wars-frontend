@@ -27,9 +27,119 @@
     src: url(Poppins-Regular.ttf)
 }
 
-body{
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {}
+
+/* Login Page */
+
+.login-page{
     background-image: url(../images/bg_1.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    height: 100vh;
 }
+
+.login-form-container {
+    color: white;
+    text-align: center;
+    padding-top: 10.7rem;
+}
+
+.login-small-title {
+    font-family: Starjedi;
+    font-size: 30px;
+}
+
+.login-big-title {
+    font-family: Distantgalaxy;
+    font-size: 70px;
+    padding-top: 2rem;
+}
+
+.login-form {
+    padding-top: 5rem;
+}
+
+.login-form label {
+    font-family: Poppins-Bold;
+    font-size: 14px;
+    line-height: 2rem;
+}
+
+.login-form input {
+    font-family: Poppins-Regular;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 27%;
+    height: 45px;
+    border: none;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.login-form button {
+    font-family: Poppins-Bold;
+    font-size: 16px;
+    margin-top: 1.3rem;
+    width: 17%;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    background-color: #F7B500;
+}
+
+
+/* Character Selection Page */
+
+.character-selection-page{
+    background-image: url(../images/bg_2.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* Header */
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #fff;
+    margin-top: 1.5rem;
+    padding-bottom: 1rem;
+    font-family: Poppins-Bold;
+    font-size: 16px;
+}
+
+.header:before {
+    content : "";
+    position: absolute;
+    left    : 10%;
+    bottom  : 0;
+    height  : 1px;
+    width   : 80%;
+    border-bottom:1px solid white;
+}
+
+.header img {
+    padding: 0 10px 0 
+}
+
+.user {
+    margin-left: 10%;
+}
+
+.logout {
+    margin-right: 10%;
+}
+
+
