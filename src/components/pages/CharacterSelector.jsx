@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
+import Slider from "../slider/Slider";
 
 export default function CharacterSelector(props){
 
-    const [position, setPosition] = useState();
     const [characters, setCharacters] = useState([{}]);
     const [isLoaded, setIsLoaded] = useState(false);
     const url = "https://developer.webstar.hu/rest/frontend-felveteli/v2/characters/"
@@ -19,8 +19,7 @@ export default function CharacterSelector(props){
             { headers }
           );
           const data = await response.json();
-          setCharacters(data);
-          console.log(characters);
+          setCharacters(data.characters);
           setIsLoaded(true);
         }
         fetchData();
@@ -34,9 +33,7 @@ export default function CharacterSelector(props){
     }
     return(
         <div className="character-selection-page">
-          {characters.characters.map((character) => {
-            return(<div>{character.name}</div>)
-          })}
+          <Slider characters={characters} />
         </div>
     )
 }
