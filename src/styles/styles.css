@@ -104,6 +104,7 @@
     background-attachment: fixed;
     background-size: cover;
     height: 100vh;
+    color:white
 }
 
 /* Header */
@@ -140,6 +141,7 @@
 
 .logout {
     margin-right: 10%;
+    cursor: pointer;
 }
 
 

@@ -34,7 +34,7 @@ function App() {
       <div className="main-container">
         <Header user={user} handleLogout={handleLogout} />
         <Routes>
-          <Route path="/" element={<CharacterSelector user={user} />} />
+          <Route path="/" element={ <CharacterSelector user={user} /> } />
         </Routes>
       </div>
       );
