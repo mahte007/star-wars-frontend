@@ -111,6 +111,7 @@
     display: flex;
     height: 50%;
     user-select: none;
+    padding: 1rem 0 2rem;
 }
 
 .powers-container > div > p:first-child {
@@ -126,7 +127,7 @@
 }
 
 .rectangle {
-    border: 8px solid white;
+    border: 8px solid #fff;
     width: 2rem;
     height: 2rem;
     margin-right: 1rem;
@@ -149,9 +150,12 @@
 .name {
     color: #fff;
     font-family: Starjedi;
-    font-size: 60px;
+    font-size: 90px;
     line-height: 6rem;
     user-select: none;
+    padding-bottom: 1rem;
+    position: relative;
+    display: flex;
 }
 
 .description {
@@ -162,10 +166,9 @@
 
 .character-image {
     width: 40%;
-    height: auto;
     position: absolute;
-    right: 10rem;
-    user-select: none;
+    right: 6%;
+    user-select: none; 
 }
 
 .background-circle {
@@ -174,15 +177,15 @@
     height: 26rem;
     width: 26rem;
     border-radius: 100%;
-    right: 10%;
-    bottom: 15%;
+    right: 5%;
+    bottom: 16%;
 }
 
 .slider {
     padding: 5% 10% 0;
     display: grid;
     flex-grow: 1;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
 }
 
 .slider > article:last-child {
@@ -192,13 +195,13 @@
 
 .slider > .details-article > .details-container {
     display: grid;
-    grid-template-columns: 30% 40%;
+    grid-template-columns: 40% 40%;
     margin-right: 10%;
 }
 
 .slider > article > .navigation-container {
     display: grid;
-    grid-template-columns: 60% 10% 10%;
+    grid-template-columns: 70% 15% 15%;
 }
 
 .arrow {
@@ -265,12 +268,60 @@
 }
 
 .user {
-    margin-left: 10%;
+    margin-left: 9%;
 }
 
 .logout {
-    margin-right: 10%;
+    margin-right: 9%;
     cursor: pointer;
 }
 
+/* Moduls styles */
 
+.moduls-container {
+    padding: 2rem 10% 0;
+}
+
+.moduls-container > span {
+    font-family: Poppins-Black;
+    font-size: 24px;
+}
+
+.simulation-container {
+    margin-top: 1rem;
+    display: flex;
+    width: 45%;
+}
+
+.simulation-container > span {
+    font-family: Poppins-Bold;
+    font-size: 18px;
+}
+
+.simulation-container > div {
+    font-family: Poppins-Regular;
+    font-size: 16px;
+    padding-left: 1rem;
+}
+
+.button {
+    font-family: Poppins-Bold;
+    font-size: 16px;
+    margin: 1rem 1rem 0 0;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.select-button {
+    border: 3px solid #F7B500;
+    color: #fff;
+    background-color: transparent;
+    width: 50%;
+}
+
+.fight-button {
+    background-color: #F7B500;
+    width: 40%;
+}

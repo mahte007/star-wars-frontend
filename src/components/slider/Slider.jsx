@@ -4,24 +4,24 @@ import CharacterImage from "../reusable/CharacterImage";
 
 export default function Slider(props) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const {isActive, setIsActive} = useState(false);
-
-    console.log(props.characters)
 
     const goToPrevious = () => {
         const isFirstSlide = currentIndex === 0;
         const newIndex = isFirstSlide ? props.characters.length - 1 : currentIndex - 1;
         setCurrentIndex(newIndex);
+        props.setCurrentIndex(newIndex);
     }
 
     const goToNext = () => {
         const isLastSlide = currentIndex === props.characters.length - 1;
         const newIndex = isLastSlide ? 0 : currentIndex + 1;
         setCurrentIndex(newIndex);
+        props.setCurrentIndex(newIndex);
     }
 
     const goToIndex = characterIndex => {
         setCurrentIndex(characterIndex);
+        props.setCurrentIndex(characterIndex);
     }
 
     const IMG = (imageName) => {
