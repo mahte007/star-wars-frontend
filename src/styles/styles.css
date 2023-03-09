@@ -325,3 +325,14 @@
     background-color: #F7B500;
     width: 40%;
 }
+
+/* Fight Page */
+
+.fight-page {
+    background-image: url(../images/bg_3.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    color:white
+}
