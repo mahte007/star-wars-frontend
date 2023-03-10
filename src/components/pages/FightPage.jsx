@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import CharacterImage from "../reusable/CharacterImage";
 
 
-function simulate(characterAttributes, setCharacterAttributes) {
+function simulate(characterAttributes, setCharacterAttributes, setWinner, setIsFinished) {
     const max = 20;
     const min = 10;
     let damageDealt;
@@ -37,6 +38,12 @@ function simulate(characterAttributes, setCharacterAttributes) {
         setCharacterAttributes(characterAttributes);
         console.log(characterAttributes);
         if(characterAttributes.light.hp <= 0 || characterAttributes.dark.hp <= 0){
+            if(characterAttributes.light.hp <= 0){
+                setWinner("light");
+            }else if(characterAttributes.dark.hp <= 0){
+                setWinner("dark");
+            }
+            setIsFinished(true);
             return;
         }
         setTimeout(loop, 2000);
@@ -59,6 +66,8 @@ export default function FightPage(props) {
     });;
     const [data, setData] = useState("");
     const [isLoaded, setIsLoaded] = useState(false);
+    const [isFinished, setIsFinished] = useState(false);
+    const [winner, setWinner] = useState("");
 
     useEffect(() => {
         async function fetchData(){
@@ -81,7 +90,7 @@ export default function FightPage(props) {
 
     useEffect(() => {
         if(isLoaded){
-            simulate(characterAttributes, setCharacterAttributes);
+            simulate(characterAttributes, setCharacterAttributes, setWinner, setIsFinished);
         }
     }, [isLoaded])
 
@@ -103,9 +112,9 @@ export default function FightPage(props) {
         return(
             <div className="fight-page">
             <p className="fight-page-title">A tudás legyen veled</p>
-              <div className="dark-side">
+              <div className={winner === "dark" ? "winner dark-side" : "looser dark-side"}>
+              <p className="side-title">Sötét oldal</p>
                 <div>
-                <p className="side-title">Sötét oldal</p>
                  <CharacterImage image={props.finalCharacters.dark} class="fighting-character-image dark-character-image" />
                 </div>
                 <p className="character-name">
@@ -118,12 +127,12 @@ export default function FightPage(props) {
                 <span className="hp-bar"><span style={ {width: characterAttributes.dark.hp + "%"} } className={getColorOfHp(characterAttributes.dark.hp)} /></span>
                 <p className="hp-number">{characterAttributes.dark.hp} %</p>
               </div>
-              <div className="versus">
+              <div className={isFinished ? "looser" : "versus"}>
                 VS
               </div>
-              <div className="light-side">
-                <div>  
+              <div className={winner === "light" ? "winner light-side" : "looser light-side"}>
                 <p className="side-title">Világos oldal</p>
+                <div>  
                  <CharacterImage image={props.finalCharacters.light} class="fighting-character-image light-character-image" />
                 </div>
                 <p className="character-name">
@@ -136,6 +145,7 @@ export default function FightPage(props) {
                 <span className="hp-bar"><span style={ { width: characterAttributes.light.hp + "%"} } className={getColorOfHp(characterAttributes.light.hp)} /></span>
                 <p className="hp-number">{characterAttributes.light.hp} %</p>
               </div>
+              {/* <Link to={"/"} className="go-back-button-link"><button className="go-back-button">Vissza a fedélzetre</button></Link> */} {/* finished */}
             </div>
         )
     }

@@ -360,10 +360,24 @@
     width: max-content;
 }
 
+.dark-side {
+    display: inline;
+}
+
+.dark-side > .side-title {
+    text-align: left;
+    margin-left: 20%;
+}
+
+.light-side > .side-title {
+    text-align: right;
+    margin-right: 20%
+}
+
 .side-title{
     font-family: Poppins-Black;
     font-size: 24px;
-    top: 20%
+    margin: 25% auto 10%;
 }
 
 .dark-side > div {
@@ -371,7 +385,7 @@
     width: 18rem;
     background-color: #333333;
     border-radius: 100%;
-    margin: 40% auto 10%;
+    margin: 0 auto 10%;
 }
 
 .light-side > div {
@@ -379,7 +393,7 @@
     width: 18rem;
     background-color: #fff;
     border-radius: 100%;
-    margin: 40% auto 10%;
+    margin: 0 auto 10%;
 }
 
 .character-name {
@@ -446,3 +460,41 @@
     background-color: #FF3232;
 }
 
+/* Battle winner styles */
+
+.winner > div {
+    margin: 40% 95% 0;
+}
+
+.winner > .character-name {
+    margin: 2.5rem 100%;
+    width: max-content
+}
+
+.winner > div > .fighting-character-image {
+    margin-left: -20%;
+}
+
+.winner > .side-title, .winner > .hp-bar, .winner > .hp-number, .looser {
+    display: none;
+}
+
+.go-back-button {
+    position: fixed;
+    font-family: Poppins-Bold;
+    font-size: 16px;
+    width: 20%;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    background-color: #F7B500;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.go-back-button-link {
+    width: 20%;
+    height: 45px;
+}
