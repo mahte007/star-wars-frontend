@@ -76,8 +76,8 @@ export default function Slider(props) {
                             })
                         }
                     </div>
-                    <div className="arrow prev-arrow" onClick={goToPrevious}> <img src={IMG("arrow_circle.png")} alt="left-arrow" className="chevron" /> </div>
-                    <div className="arrow next-arrow" onClick={goToNext}> <img src={IMG("arrow_circle.png")} alt="right-arrow" className="chevron" /> </div>
+                    <div className="arrow prev-arrow"> <img src={IMG("arrow_circle.png")} alt="left-arrow" className="chevron" onClick={goToPrevious} /> </div>
+                    <div className="arrow next-arrow"> <img src={IMG("arrow_circle.png")} alt="right-arrow" className="chevron" onClick={goToNext} /> </div>
                 </div>
                 <div className="background-circle">
                 </div>

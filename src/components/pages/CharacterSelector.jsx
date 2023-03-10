@@ -8,9 +8,7 @@ export default function CharacterSelector(props){
     const [characters, setCharacters] = useState([{}]);
     const [selectedCharacters, setSelectedCharacters] = useState([])
     const [sides, setSides] = useState([]);
-    //const [isSelected, setIsSelected] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [finalCharacters, setFinalCharacters] = useState()
     const url = "https://developer.webstar.hu/rest/frontend-felveteli/v2/characters/"
     const navigate = useNavigate();
 
@@ -64,41 +62,34 @@ export default function CharacterSelector(props){
         }
       }
 
-      /* const handleSelect = () => {
-        setIsSelected(!isSelected);
-      } */
-
       useEffect(() => {
+        //console.log(characters)
         console.log(selectedCharacters)
         console.log(sides);
-      },[selectedCharacters, sides]);
+      },[selectedCharacters, sides, characters]);
 
 
       const fightSimulate = () => {
-        if(sides.length === 2 && sides[0] !== sides[1]){
-          setFinalCharacters({
-            "dark": "vader",
-            "light": "solo"
-          })
-          
-          /* if(sides[0] === 'DARK'){
-            setFinalCharacters({
+        if(sides.length === 2 && sides[0] !== sides[1]){          
+          if(sides[0] === 'DARK'){
+            props.setFinalCharacters({
               "dark": selectedCharacters[0],
               "light": selectedCharacters[1]
             })
           }else{
-            setFinalCharacters({
+            props.setFinalCharacters({
               "dark": selectedCharacters[1],
               "light": selectedCharacters[0]
             })
-          } */
-          setFinalCharacters("asd")
-          console.log(finalCharacters);
-          navigate('/fight');
-        }else if(sides.length < 2){
-          alert("2 karaktert kell kiválasztanod")
-        }
+          }
+      }else{
+        props.setFinalCharacters({
+          "dark": selectedCharacters[1],
+          "light": selectedCharacters[0]
+        })
       }
+      navigate('/fight');
+    }
 
     if(!isLoaded){
       return(
@@ -114,7 +105,7 @@ export default function CharacterSelector(props){
               <span>Szimuláció</span>
               <div>
                 Válassz két karaktert ellentétes oldalakról
-                <button className="select-button button" onClick={() => {selectCharacter()}}>Karakter kiválasztása</button>
+                <button className={selectedCharacters.includes(characters[currentIndex].id) ? "select-button button active" : "select-button button"} onClick={() => {selectCharacter()}}>Karakter kiválasztása</button>
                 <button className="fight-button button" onClick={fightSimulate}>Küzdelem indítása</button>
               </div>
             </div>

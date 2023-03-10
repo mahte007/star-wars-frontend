@@ -3,6 +3,7 @@ import LoginForm from "../login/LoginForm";
 
 export default function Login(props){
 
+    const url = "https://developer.webstar.hu/rest/frontend-felveteli/v2/authentication/"
     const [loginCredentials, setLoginCredentials] = useState({
         username: '',
         password: ''
@@ -26,7 +27,7 @@ export default function Login(props){
                        'Applicant-Id': '7Bna8WyX' },
             body: JSON.stringify(loginCredentials)
         };
-        fetch('https://developer.webstar.hu/rest/frontend-felveteli/v2/authentication/', requestOptions)
+        fetch(url, requestOptions)
         .then(response => response.json())
         .then(data => {
             props.setUser(data);

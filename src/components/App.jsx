@@ -8,6 +8,10 @@ import Login from "./pages/Login";
 
 function App() {
   const navigate = useNavigate();
+  const [finalCharacters, setFinalCharacters] = useState({
+    "dark": "",
+    "light": ""
+  })
 
   useEffect(() => {
     navigate("/")
@@ -32,7 +36,8 @@ function App() {
               firsName: '',
               lastName: ''
             }
-    })
+    });
+    navigate("/")
   }
 
   if(user.token){
@@ -40,8 +45,8 @@ function App() {
       <div className="main-container">
         <Header user={user} handleLogout={handleLogout} />
         <Routes>
-          <Route path="/" element={ <CharacterSelector user={user} /> } />
-          <Route path="/fight" element={ <FightPage /> } />
+          <Route path="/" element={ <CharacterSelector user={user} setFinalCharacters={setFinalCharacters} /> } />
+          <Route path="/fight" element={ <FightPage user={user} finalCharacters={finalCharacters} /> } />
         </Routes>
       </div>
       );

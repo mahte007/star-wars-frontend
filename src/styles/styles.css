@@ -104,7 +104,7 @@
     background-attachment: fixed;
     background-size: cover;
     height: 100vh;
-    color:white
+    color:white;
 }
 
 .powers-container {
@@ -165,9 +165,9 @@
 }
 
 .character-image {
-    width: 40%;
+    max-width: 40%;
+    margin-top: -1.5rem;
     position: absolute;
-    right: 6%;
     user-select: none; 
 }
 
@@ -177,8 +177,8 @@
     height: 26rem;
     width: 26rem;
     border-radius: 100%;
-    right: 5%;
-    bottom: 16%;
+    margin-left: 10%;
+    margin-top: 5%;
 }
 
 .slider {
@@ -207,8 +207,12 @@
 .arrow {
     display: flex;
     justify-content: space-evenly;
-    cursor: pointer;
     user-select: none;
+    z-index: 1;
+}
+
+.arrow img {
+    cursor: pointer;
 }
 
 .next-arrow {
@@ -220,6 +224,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    z-index: 1;
 }
 
 .navigation-dots > div {
@@ -319,6 +324,12 @@
     color: #fff;
     background-color: transparent;
     width: 50%;
+    transition: .3s;
+}
+
+.select-button.active {
+    color: #000;
+    background-color: #F7B500;
 }
 
 .fight-button {
