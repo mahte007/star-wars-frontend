@@ -19,6 +19,7 @@ export default function CharacterSelector(props){
             "Applicant-Id": "7Bna8WyX",
             "Application-Authorization": "Bearer " + props.user.token
           };
+          
           const response = await fetch(
             url,
             { headers }
@@ -29,6 +30,8 @@ export default function CharacterSelector(props){
         }
         fetchData();
       }, []);
+
+
 
       const selectCharacter = () => {
         if(selectedCharacters.length < 2){
