@@ -350,12 +350,20 @@
     grid-template-columns: 40% 20% 40%;
 }
 
-.light-side{
-    border: 1px solid white;
+.fight-page-title {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Starjedi;
+    font-size: 60px;
+    width: max-content;
 }
 
-.dark-side{
-    border: 1px solid white;
+.side-title{
+    font-family: Poppins-Black;
+    font-size: 24px;
+    top: 20%
 }
 
 .dark-side > div {
@@ -363,7 +371,7 @@
     width: 18rem;
     background-color: #333333;
     border-radius: 100%;
-    margin: 25% auto;
+    margin: 40% auto 10%;
 }
 
 .light-side > div {
@@ -371,7 +379,19 @@
     width: 18rem;
     background-color: #fff;
     border-radius: 100%;
-    margin: 25% auto;
+    margin: 40% auto 10%;
+}
+
+.character-name {
+    font-family: Starjedi;
+    font-size: 40px;
+    margin-left: 18%;
+}
+
+.hp-number {
+    font-family: Poppins-Bold;
+    font-size: 24px;
+    margin: 5px 0 0 30% 
 }
 
 .versus{
@@ -403,19 +423,26 @@
     border-radius: 5px;
 }
 
-.dark-side > .hp-bar > span {
+.hp-bar > span {
     display: flex;
-    width: 50%;
     height: 20px;
-    background-color: green;
     border-radius: 5px;
+    transition: .3s;
 }
 
 .light-side > .hp-bar > span {
-    display: flex;
-    width: 50%;
-    height: 20px;
     margin-left: auto;
-    background-color: green;
-    border-radius: 5px;
 }
+
+.hp-bar-green {
+    background-color: #2ECC71;
+}
+
+.hp-bar-yellow {
+    background-color: #F7B500;
+}
+
+.hp-bar-red {
+    background-color: #FF3232;
+}
+

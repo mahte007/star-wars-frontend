@@ -66,7 +66,6 @@ export default function CharacterSelector(props){
       }
 
       useEffect(() => {
-        //console.log(characters)
         console.log(selectedCharacters)
         console.log(sides);
       },[selectedCharacters, sides, characters]);
@@ -91,6 +90,7 @@ export default function CharacterSelector(props){
           "light": selectedCharacters[0]
         })
       }
+      props.setCharacterDetails(characters);
       navigate('/fight');
     }
 

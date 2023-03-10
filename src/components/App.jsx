@@ -12,6 +12,11 @@ function App() {
     "dark": "",
     "light": ""
   })
+  const [characterDetails, setCharacterDetails] = useState({
+    dark: "",
+    light: ""
+  });
+  
 
   useEffect(() => {
     navigate("/")
@@ -45,8 +50,8 @@ function App() {
       <div className="main-container">
         <Header user={user} handleLogout={handleLogout} />
         <Routes>
-          <Route path="/" element={ <CharacterSelector user={user} setFinalCharacters={setFinalCharacters} /> } />
-          <Route path="/fight" element={ <FightPage user={user} finalCharacters={finalCharacters} /> } />
+          <Route path="/" element={ <CharacterSelector user={user} setFinalCharacters={setFinalCharacters} setCharacterDetails={setCharacterDetails} /> } />
+          <Route path="/fight" element={ <FightPage user={user} finalCharacters={finalCharacters} characterDetails={characterDetails} /> } />
         </Routes>
       </div>
       );
