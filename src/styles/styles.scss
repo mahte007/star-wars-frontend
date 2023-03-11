@@ -348,6 +348,7 @@
     color:white;
     display: grid;
     grid-template-columns: 40% 20% 40%;
+    overflow: hidden;
 }
 
 .fight-page-title {
@@ -361,7 +362,11 @@
 }
 
 .dark-side {
-    display: inline;
+    transition: .5s;
+}
+
+.light-side {
+    transition: .5s;
 }
 
 .dark-side > .side-title {
@@ -385,7 +390,8 @@
     width: 18rem;
     background-color: #333333;
     border-radius: 100%;
-    margin: 0 auto 10%;
+    margin: 0 25% 7%;
+    transition: margin-left .5s;
 }
 
 .light-side > div {
@@ -393,13 +399,15 @@
     width: 18rem;
     background-color: #fff;
     border-radius: 100%;
-    margin: 0 auto 10%;
+    margin: 0 25% 7%;
+    transition: margin-left .5s;
 }
 
 .character-name {
     font-family: Starjedi;
     font-size: 40px;
     margin-left: 18%;
+    line-height: 1.2;
 }
 
 .hp-number {
@@ -462,21 +470,37 @@
 
 /* Battle winner styles */
 
-.winner > div {
-    margin: 40% 95% 0;
+.winner-dark > div {
+    margin: 40% 0 0 100%;
+}
+
+.winner-light > div {
+    margin: 40% 0  0 -50%;
 }
 
 .winner > .character-name {
-    margin: 2.5rem 100%;
-    width: max-content
+    margin: 2.5rem 100% 0;
+    width: max-content;
+    position: fixed;
+    left: -50%;
+    transform: translate(-50%);
 }
 
 .winner > div > .fighting-character-image {
     margin-left: -20%;
 }
 
-.winner > .side-title, .winner > .hp-bar, .winner > .hp-number, .looser {
+.winner > .side-title, .winner > .hp-bar, .winner > .hp-number {
     display: none;
+}
+
+.looser {
+    overflow: hidden;
+}
+
+.looser {
+    opacity: 0;
+    transform: translateY(100%);
 }
 
 .go-back-button {
@@ -497,4 +521,8 @@
 .go-back-button-link {
     width: 20%;
     height: 45px;
+}
+
+.hide {
+    display: none;
 }
