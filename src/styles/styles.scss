@@ -109,13 +109,17 @@
     padding: 1rem 0 2rem;
 }
 
+.powers-container > div:last-child {
+    width: 100%;
+}
+
 .powers-container > div > p:first-child {
     color: $orange-color;
     font-family: Poppins-Bold;
     font-size: 16px;
 }
 
-.powers-container > p:last-child {
+.powers-container > div > p:last-child {
     color: $white-color;
     font-family: Poppins-Black;
     font-size: 20px;
@@ -123,7 +127,7 @@
 
 .rectangle {
     border: 8px solid $white-color;
-    width: 2rem;
+    min-width: 2rem;
     height: 2rem;
     margin-right: 1rem;
     user-select: none;
@@ -132,7 +136,7 @@
 .star {
     background-color: $orange-color;
     text-align: center;
-    width: 3rem;
+    min-width: 3rem;
     height: 3rem;
     margin-right: 1rem;
     user-select: none;
@@ -168,7 +172,7 @@
 
 .background-circle {
     position: absolute;
-    background-color: $orange-colorB500;
+    background-color: $orange-color;
     height: 26rem;
     width: 26rem;
     border-radius: 100%;
@@ -188,9 +192,9 @@
     padding-left: 10%;
 }
 
-.slider > .details-article > .details-container {
+.details-container {
     display: grid;
-    grid-template-columns: 40% 40%;
+    grid-template-columns: 1fr 1fr;
     margin-right: 10%;
 }
 
@@ -315,7 +319,7 @@
 }
 
 .select-button {
-    border: 3px solid $orange-colorB500;
+    border: 3px solid $orange-color;
     color: $white-color;
     background-color: transparent;
     width: 50%;
@@ -324,11 +328,11 @@
 
 .select-button.active {
     color: $black-color;
-    background-color: $orange-colorB500;
+    background-color: $orange-color;
 }
 
 .fight-button {
-    background-color: $orange-colorB500;
+    background-color: $orange-color;
     width: 40%;
 }
 
@@ -456,7 +460,7 @@
 }
 
 .hp-bar-yellow {
-    background-color: $orange-colorB500;
+    background-color: $orange-color;
 }
 
 .hp-bar-red {
@@ -506,7 +510,7 @@
     height: 45px;
     border-radius: 5px;
     border: none;
-    background-color: $orange-colorB500;
+    background-color: $orange-color;
     left: 50%;
     bottom: 0;
     transform: translate(-50%, -50%);
@@ -538,7 +542,7 @@
     color: $white-color;
     background-color: $black-color;
     padding: 20px;
-    border: 5px solid $orange-colorB500;
+    border: 5px solid $orange-color;
     border-radius: 10px;
     width: 25%;
     height: 25%;
@@ -557,7 +561,7 @@
   
   .alert-content button {
     color: $black-color;
-    background-color: $orange-colorB500;
+    background-color: $orange-color;
     border-radius: 3px;
     width: 20%;
     height: 30px;
