@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Slider from "../slider/Slider";
 import { useNavigate } from "react-router-dom";
+import CustomAlert from "../reusable/CustomAlert";
 
 export default function CharacterSelector(props){
 
@@ -11,12 +12,15 @@ export default function CharacterSelector(props){
     const [currentIndex, setCurrentIndex] = useState(0);
     const url = "https://developer.webstar.hu/rest/frontend-felveteli/v2/characters/"
     const navigate = useNavigate();
+    const [showAlert, setShowAlert] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const applicantId = "7Bna8WyX";
 
      useEffect(() => {
         async function fetchData() {
           const headers = {
             "Content-Type": "application/json",
-            "Applicant-Id": "7Bna8WyX",
+            "Applicant-Id": applicantId,
             "Application-Authorization": "Bearer " + props.user.token
           };
           
@@ -24,9 +28,27 @@ export default function CharacterSelector(props){
             url,
             { headers }
           );
-          const data = await response.json();
-          setCharacters(data.characters);
-          setIsLoaded(true);
+          console.log(response);
+          if(response.ok){
+            const data = await response.json();
+            setCharacters(data.characters);
+            setIsLoaded(true);
+          }else{
+            const data = await response.json();
+            switch (response.status) {
+              case 400:
+                setErrorMessage(data.error);
+                handleAlert();
+                break;
+              case 405:
+                setErrorMessage(data.error);
+                handleAlert();
+                break;
+              default:
+                setErrorMessage("Unexpected Error!");
+                handleAlert()
+            }
+          }
         }
         fetchData();
       }, []);
@@ -65,10 +87,13 @@ export default function CharacterSelector(props){
         }
       }
 
+
+
       useEffect(() => {
         console.log(selectedCharacters)
         console.log(sides);
       },[selectedCharacters, sides, characters]);
+
 
 
       const fightSimulate = () => {
@@ -94,9 +119,24 @@ export default function CharacterSelector(props){
       navigate('/fight');
     }
 
+
+    
+    function handleAlert() {
+      setShowAlert(true);
+    }
+
+    function handleCloseAlert() {
+        setShowAlert(false);
+    }
+
+
+
     if(!isLoaded){
       return(
-        <div>Loading...</div>
+        <>
+          <div>Loading...</div>
+          {showAlert && (<CustomAlert message={errorMessage} onClose={handleCloseAlert} />)}
+        </>
       )
     }
     return(
@@ -113,6 +153,7 @@ export default function CharacterSelector(props){
               </div>
             </div>
           </div>
+          {showAlert && (<CustomAlert message={errorMessage} onClose={handleCloseAlert} />)}
         </div>
     )
 }

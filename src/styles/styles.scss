@@ -1,31 +1,26 @@
-@font-face{
-    font-family: Distantgalaxy;
-    src: url(SfDistantGalaxyAltoutline-e2Bp.ttf)
-}
-@font-face{
-    font-family: Starjedi;
-    src: url(Starjedi.ttf)
-}
-@font-face{
-    font-family: Poppins-Black;
-    src: url(Poppins-Black.ttf)
-}
-@font-face{
-    font-family: Poppins-Bold;
-    src: url(Poppins-Bold.ttf)
-}
-@font-face{
-    font-family: Poppins-ExtraBold;
-    src: url(Poppins-ExtraBold.ttf)
-}
-@font-face{
-    font-family: Poppins-Medium;
-    src: url(Poppins-Medium.ttf)
-}
-@font-face{
-    font-family: Poppins-Regular;
-    src: url(Poppins-Regular.ttf)
-}
+@mixin font-face($font-family, $font-url) {
+    @font-face {
+      font-family: $font-family;
+      src: url($font-url);
+    }
+  }
+
+  @include font-face('Distantgalaxy', 'SfDistantGalaxyAltoutline-e2Bp.ttf');
+  @include font-face('Starjedi', 'Starjedi.ttf');
+  @include font-face('Poppins-Black', 'Poppins-Black.ttf');
+  @include font-face('Poppins-Bold', 'Poppins-Bold.ttf');
+  @include font-face('Poppins-ExtraBold', 'Poppins-ExtraBold.ttf');
+  @include font-face('Poppins-Medium', 'Poppins-Medium.ttf');
+  @include font-face('Poppins-Regular', 'Poppins-Regular.ttf');
+
+  $orange-color: #F7B500;
+  $white-color: #FFFFFF;
+  $black-color: #000000;
+  $darker-grey-color: #333333;
+  $grey-color: #8A8A8A;
+  $red-color: #FF3232;
+  $blue-color: #00D2FF;
+  $green-color: #2ECC71;
 
 *{
     margin: 0;
@@ -43,7 +38,7 @@
 }
 
 .login-form-container {
-    color: white;
+    color: $white-color;
     text-align: center;
     padding-top: 10.7rem;
 }
@@ -91,7 +86,7 @@
     height: 45px;
     border-radius: 5px;
     border: none;
-    background-color: #F7B500;
+    background-color: $orange-color;
     cursor: pointer;
 }
 
@@ -104,7 +99,7 @@
     background-attachment: fixed;
     background-size: cover;
     height: 100vh;
-    color:white;
+    color:$white-color;
 }
 
 .powers-container {
@@ -115,19 +110,19 @@
 }
 
 .powers-container > div > p:first-child {
-    color: #F7B500;
+    color: $orange-color;
     font-family: Poppins-Bold;
     font-size: 16px;
 }
 
 .powers-container > p:last-child {
-    color: #fff;
+    color: $white-color;
     font-family: Poppins-Black;
     font-size: 20px;
 }
 
 .rectangle {
-    border: 8px solid #fff;
+    border: 8px solid $white-color;
     width: 2rem;
     height: 2rem;
     margin-right: 1rem;
@@ -135,7 +130,7 @@
 }
 
 .star {
-    background-color: #F7B500;
+    background-color: $orange-color;
     text-align: center;
     width: 3rem;
     height: 3rem;
@@ -148,7 +143,7 @@
 }
 
 .name {
-    color: #fff;
+    color: $white-color;
     font-family: Starjedi;
     font-size: 90px;
     line-height: 6rem;
@@ -159,7 +154,7 @@
 }
 
 .description {
-    color: #fff;
+    color: $white-color;
     font-family: Poppins-Regular;
     font-size: 16px;
 }
@@ -173,7 +168,7 @@
 
 .background-circle {
     position: absolute;
-    background-color: #F7B500;
+    background-color: $orange-colorB500;
     height: 26rem;
     width: 26rem;
     border-radius: 100%;
@@ -232,7 +227,7 @@
     height: 20px;
     width: 20px;
     font-size: 20px;
-    color: #8A8A8A;
+    color: $grey-color;
     cursor: pointer;
     user-select: none;
 }
@@ -240,7 +235,7 @@
 .navigation-dots > div.active {
     border: 1px solid white;
     border-radius: 100%;
-    color: #fff;
+    color: $white-color;
 }
 
 /* Header */
@@ -250,7 +245,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    color: #fff;
+    color: $white-color;
     margin-top: 1.5rem;
     padding-bottom: 1rem;
     font-family: Poppins-Bold;
@@ -320,20 +315,20 @@
 }
 
 .select-button {
-    border: 3px solid #F7B500;
-    color: #fff;
+    border: 3px solid $orange-colorB500;
+    color: $white-color;
     background-color: transparent;
     width: 50%;
     transition: .3s;
 }
 
 .select-button.active {
-    color: #000;
-    background-color: #F7B500;
+    color: $black-color;
+    background-color: $orange-colorB500;
 }
 
 .fight-button {
-    background-color: #F7B500;
+    background-color: $orange-colorB500;
     width: 40%;
 }
 
@@ -388,7 +383,7 @@
 .dark-side > div {
     height: 18rem;
     width: 18rem;
-    background-color: #333333;
+    background-color: $darker-grey-color;
     border-radius: 100%;
     margin: 0 25% 7%;
     transition: margin-left .5s;
@@ -397,7 +392,7 @@
 .light-side > div {
     height: 18rem;
     width: 18rem;
-    background-color: #fff;
+    background-color: $white-color;
     border-radius: 100%;
     margin: 0 25% 7%;
     transition: margin-left .5s;
@@ -441,7 +436,7 @@
     width: 65%;
     height: 20px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: $white-color;
     border-radius: 5px;
 }
 
@@ -457,15 +452,15 @@
 }
 
 .hp-bar-green {
-    background-color: #2ECC71;
+    background-color: $green-color;
 }
 
 .hp-bar-yellow {
-    background-color: #F7B500;
+    background-color: $orange-colorB500;
 }
 
 .hp-bar-red {
-    background-color: #FF3232;
+    background-color: $red-color;
 }
 
 /* Battle winner styles */
@@ -511,7 +506,7 @@
     height: 45px;
     border-radius: 5px;
     border: none;
-    background-color: #F7B500;
+    background-color: $orange-colorB500;
     left: 50%;
     bottom: 0;
     transform: translate(-50%, -50%);
@@ -526,3 +521,44 @@
 .hide {
     display: none;
 }
+
+.alert-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .alert-content {
+    color: $white-color;
+    background-color: $black-color;
+    padding: 20px;
+    border: 5px solid $orange-colorB500;
+    border-radius: 10px;
+    width: 25%;
+    height: 25%;
+    margin: 10% auto;
+  }
+  
+  .alert-content h2 {
+    font-family: DistantGalaxy;
+    margin-top: 0;
+  }
+  
+  .alert-content p {
+    font-family: Poppins-Regular;
+    margin-bottom: 20px;
+  }
+  
+  .alert-content button {
+    color: $black-color;
+    background-color: $orange-colorB500;
+    border-radius: 3px;
+    width: 20%;
+    height: 30px;
+  }

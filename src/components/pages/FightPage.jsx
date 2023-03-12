@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import CharacterImage from "../reusable/CharacterImage";
+import CustomAlert from "../reusable/CustomAlert";
+import { useNavigate } from "react-router-dom";
+
 
 
 function simulate(characterAttributes, setCharacterAttributes, setWinner, setIsFinished) {
@@ -68,22 +71,46 @@ export default function FightPage(props) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [isFinished, setIsFinished] = useState(false);
     const [winner, setWinner] = useState("");
+    const applicantId = '7Bna8WyX';
+    const [showAlert, setShowAlert] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchData(){
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json',
-                           'Applicant-Id': '7Bna8WyX',
+                           'Applicant-Id': applicantId,
                            'Application-Authorization': 'Bearer ' + props.user.token },
                 body: JSON.stringify(props.finalCharacters)
             };
 
             const response = await fetch(url, requestOptions);
             const json = await response.json();
-
             setData(json);
-            setIsLoaded(true);
+            if(response.ok){
+                setIsLoaded(true);
+            }else{
+                switch (response.status) {
+                    case 400:
+                        setErrorMessage(json.error);
+                        handleAlert();
+                        break;
+                    case 405:
+                        setErrorMessage(json.error);
+                        handleAlert();
+                        break;
+                    case 500:
+                        setErrorMessage(json.error);
+                        handleAlert();
+                        break;
+                    default:
+                        setErrorMessage("Unexpected Error!");
+                        handleAlert()
+                }
+            }
+            
         }
         fetchData();
       }, []);
@@ -108,9 +135,22 @@ export default function FightPage(props) {
         console.log(winner);
     }, [winner])
 
+
+    function handleAlert() {
+      setShowAlert(true);
+    }
+  
+    function handleCloseAlert() {
+        setShowAlert(false);
+        navigate('/')
+    }
+
     if(!isLoaded){
         return(
-            <div>...Loading</div>
+            <>
+                <div>...Loading</div>
+                {showAlert && (<CustomAlert message={errorMessage} onClose={handleCloseAlert} />)}
+            </>
         )
     }else{
         return(
@@ -150,6 +190,7 @@ export default function FightPage(props) {
                 <p className="hp-number">{characterAttributes.light.hp} %</p>
               </div>
               <Link to={"/"} className={isFinished ? "go-back-button-link" : "hide"}><button className="go-back-button">Vissza a fedélzetre</button></Link> {/* finished */}
+              {showAlert && (<CustomAlert message={errorMessage} onClose={handleCloseAlert} />)}
             </div>
         )
     }

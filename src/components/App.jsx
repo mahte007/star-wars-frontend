@@ -53,6 +53,7 @@ function App() {
           <Route path="/" element={ <CharacterSelector user={user} setFinalCharacters={setFinalCharacters} setCharacterDetails={setCharacterDetails} /> } />
           <Route path="/fight" element={ <FightPage user={user} finalCharacters={finalCharacters} characterDetails={characterDetails} /> } />
         </Routes>
+        
       </div>
       );
   }else{
